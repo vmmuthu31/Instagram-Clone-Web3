@@ -46,7 +46,7 @@ contract Media {
 
         function tipImageOwner(uint256 id) public payable{
             Image memory _image = images[_id];
-            require(0<=_id);
+            require(0 < _id && _id <= imageCount);
         }
     }
 }
