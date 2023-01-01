@@ -43,16 +43,19 @@ contract Media {
             payable(msg.sender),
             new address[](0)
         );
+    }
 
-        function tipImageOwner(uint256 _id) public payable{
-            Image memory _image = images[_id];
+    function tipImageOwner(uint256 _id) public payable {
+        Image memory _image = images[_id];
 
-            require(0 < _id && _id <= imageCount, "Invalid image ID");
-            require(0 < msg.value, "A tip must be greater than 0");
-            require(msg.sender != _image.author, "Owner cannot tip theirr own image");
-        }   
+        require(0 < _id && _id <= imageCount, "Invalid image ID");
+        require(0 < msg.value, "A tip must be greater than 0");
+        require(
+            msg.sender != _image.author,
+            "Owner cannot tip theirr own image"
+        );
 
-        payable(address(_image.author)).transfer(msg.sender);
+        payable(address(_image.author)).transfer(msg.value);
 
         _image.totalTipped += msg.value;
         images[_id] = _image;
