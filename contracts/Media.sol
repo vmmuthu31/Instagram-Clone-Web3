@@ -42,7 +42,8 @@ contract Media {
             _imgUrl,
             _caption,
             0,
-            
+            payable(msg.sender)
+            new address[](0)
         )
     }
 
