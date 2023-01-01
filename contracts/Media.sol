@@ -43,5 +43,10 @@ contract Media {
             payable(msg.sender),
             new address[](0)
         );
+
+        function tipImageOwner(uint256 id) public payable{
+            Image memory _image = images[_id];
+            require(0<=_id);
+        }
     }
 }
