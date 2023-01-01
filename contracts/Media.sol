@@ -38,6 +38,10 @@ contract Media {
         imageCount++;
 
         images[imageCount] = Image (
+            imageCount,
+            _imgUrl,
+            _caption,
+            0,
             
         )
     }
