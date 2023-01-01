@@ -31,21 +31,17 @@ contract Media {
         address payable author
     );
 
-    function uploadImage(string memory _imgUrl, string memory _caption) 
-        public 
-    {
+    function uploadImage(string memory _imgUrl, string memory _caption) public {
         require(msg.sender != address(0), "Invalid wallet address");
         imageCount++;
 
-        images[imageCount] = Image (
+        images[imageCount] = Image(
             imageCount,
             _imgUrl,
             _caption,
             0,
-            payable(msg.sender)
+            payable(msg.sender),
             new address[](0)
-        )
+        );
     }
-
-
 }
