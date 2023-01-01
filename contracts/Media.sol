@@ -55,6 +55,6 @@ contract Media {
         payable(address(_image.author)).transfer(msg.sender);
 
         _image.totalTipped += msg.value;
-        
+        images[_id] = _image;
     }
 }
