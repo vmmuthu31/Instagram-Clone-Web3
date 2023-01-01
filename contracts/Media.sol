@@ -30,4 +30,17 @@ contract Media {
         uint256 totalTipped,
         address payable author
     );
+
+    function uploadImage(string memory _imgUrl, string memory _caption) 
+        public 
+    {
+        require(msg.sender != address(0), "Invalid wallet address");
+        imageCount++;
+
+        images[imageCount] = Image (
+            
+        )
+    }
+
+
 }
