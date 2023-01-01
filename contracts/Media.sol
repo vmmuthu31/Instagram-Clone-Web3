@@ -12,7 +12,6 @@ contract Media {
     }
 
     uint256 public imageCount;
-
     mapping(uint256 => Image) public images;
 
     event ImageCreated(
