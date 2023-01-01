@@ -43,6 +43,8 @@ contract Media {
             payable(msg.sender),
             new address[](0)
         );
+
+        emit ImageCreated(imageCount, _imgUrl, _caption, payable(msg.sender));
     }
 
     function tipImageOwner(uint256 _id) public payable {
@@ -59,5 +61,14 @@ contract Media {
 
         _image.totalTipped += msg.value;
         images[_id] = _image;
+
+        emit ImageTipped(
+            _id,
+            _image.url,
+            _image.caption,
+            msg.value,
+            _image.totalTipped,
+            _image.author
+        );
     }
 }
