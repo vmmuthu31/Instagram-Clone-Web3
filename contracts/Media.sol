@@ -12,4 +12,22 @@ contract Media {
     }
 
     uint256 public imageCount;
+
+    mapping(uint256 => Image) public images;
+
+    event ImageCreated(
+        uint256 id,
+        string url,
+        string caption,
+        address payable author
+    );
+
+    event ImageTipped(
+        uint256 id,
+        string url,
+        string caption,
+        uint256 currentTip,
+        uint256 totalTipped,
+        address payable author
+    );
 }
