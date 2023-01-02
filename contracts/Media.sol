@@ -53,7 +53,7 @@ contract Media {
         require(0 < msg.value, "A tip must be greater than 0");
         require(
             msg.sender != _image.author,
-            "Owner cannot tip theirr own image"
+            "Owner cannot tip their own image"
         );
 
         payable(address(_image.author)).transfer(msg.value);
