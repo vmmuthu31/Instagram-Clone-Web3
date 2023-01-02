@@ -18,17 +18,31 @@ export const AppProvider = ({ children }) => {
 
   const getAllImages = async () => {};
 
-  const uploadImages = async () => {
+  const uploadImage = async (imgUrl, caption) => {
     if (!address) return;
     const contract = createContract();
 
-    getAllImages();
+    try {
+      const data = contract.methods.uploadImage(imgUrl, caption).send({
+        from: userAddress,
+        gas: 3000000,
+      });
+      await toast.promise(data, {
+        pending: "Uploading image... This can take a minute",
+        success: "Image uploaded successfully! ",
+        error: "Something went wrong. Please try again",
+      });
+
+      getAllImages();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const tipOwner = async () => {};
 
   return (
-    <AppContext.Provider value={{ userAddress, posts }}>
+    <AppContext.Provider value={{ userAddress, posts, uploadImage }}>
       {children}
     </AppContext.Provider>
   );
