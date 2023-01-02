@@ -11,10 +11,20 @@ import {
   omniWallet,
   imTokenWallet,
 } from "@rainbow-me/rainbowkit/wallets"
+import { infuraProvider } from "wagmi/providers/infura";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+
 
 export const { chains, provider, webSocketProvider } = configureChains(
   [goerli],
   [
+    // infuraProvider({priority: 1, apiKey: ""}),
+    // jsonRpcProvider({
+    //   priority: 2,
+    //   rpc: chain => ({
+    //     http: 'HTTP://127.0.0.1:7545',
+    //   })
+    // })
     // alchemyProvider({ apiKey: process.env.ALCHEMY_URL as string }),
     publicProvider(),
   ]

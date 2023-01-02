@@ -1,11 +1,15 @@
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
+import { useAppContext } from '../context/context'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { posts } = useAppContext()
   return (
     <>
       <Head>
@@ -15,6 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <ToastContainer position='top-center' autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <ConnectButton />
       </main>
     </>
