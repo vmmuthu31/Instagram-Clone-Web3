@@ -20,7 +20,7 @@ export const { chains, provider, webSocketProvider } = configureChains(
   ]
 )
 const { wallets } = getDefaultWallets({
-  appName: "Mint NFT",
+  appName: "Media Dapp",
   chains,
 })
 
